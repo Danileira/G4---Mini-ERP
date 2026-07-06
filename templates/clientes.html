@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4 Mini - Clientes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<body>
+    <a href="/">🏠 Voltar para Home</a>
+    <h1>Gestão de Clientes</h1>
+
+    <fieldset>
+        <legend>Cadastrar Novo Cliente</legend>
+        <form method="POST">
+            <input type="text" name="nome_cliente" placeholder="Nome Completo" required>
+            <input type="text" name="email_cliente" placeholder="Email" required>
+            
+            <button type="submit">Cadastrar Cliente</button>
+        </form>
+    </fieldset>
+
+    <hr>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in clientes %}
+            <tr>
+                <td>{{ c.nome }}</td>
+                <td>{{ c.email }}</td>
+                <td>
+                    <a href="/editar_cliente/{{ loop.index0 }}">Editar</a>
+                    <a href="/excluir_cliente/{{ loop.index0 }}" onclick="return confirm ('Excluir cliente?')">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<body>
+    <h1>Editar Produto</h1>
+
+    <form method="POST">
+        <label>Nome:</label>
+        <input type="text" name="nome_produto" value="{{ produto.nome }}" required><br><br>
+        
+        <label>Preço:</label>
+        <input type="number" name="preco_produto" value="{{ produto.preco }}" required><br><br>
+        
+        <label>Quantidade:</label>
+        <input type="number" name="quantidade_produto" value="{{ produto.quantidade }}" required><br><br>
+
+        <button type="submit">Salvar Alterações</button>
+        <a href="/produtos">Cancelar</a>
+    </form>
+</body>
+</html>

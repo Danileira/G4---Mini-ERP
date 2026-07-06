@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4 Mini - Produtos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<body>
+    <a href="/">🏠 Voltar para Home</a>
+    <h1>Gestão de Produtos</h1>
+
+    <!--Criando um formulário-->
+    <fieldset> <!--Utilizando fieldset para agrupar os inputs-->
+        <legend>Cadastrar Novo Produto</legend> <!--Utilizando legend para dar um titulo ao fieldset-->
+        <form method="POST"> <!--Utilizando o method POST para enviar os dados do formulário-->
+            <input type="text" name="nome_produto" placeholder="Nome do Produto" required>
+            <input type="number" step="0.01" name="preco_produto" placeholder="Preço" required>
+            <input type="number" name="quantidade_produto" placeholder="Quantidade em Estoque" required>
+            
+            <button type="submit">Adicionar</button>
+        </form>
+    </fieldset>
+
+    <hr>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Estoque (UN)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in produtos %} 
+            <tr>
+                <td>{{ p.nome }}</td>
+                <td>R$ {{ p.preco }}</td>
+                <td>{{ p.quantidade }} un</td>
+                <td>
+                    <a href="/editar_produto/{{ loop.index0 }}">Editar</a> |
+                    <a href="excluir_produto/{{ loop.index0 }}"
+                        onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

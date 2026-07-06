@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G4 Mini - Orçamentos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<body>
+    <a href="/">🏠 Voltar para Home</a>
+    <h1>Registrar Orçamento</h1>
+
+    <!--Criando o formulário-->
+    <fieldset>
+        <legend>Novo Orçamento</legend> <!--Adiciona a legenda ao fieldset-->
+        <form method="POST"> <!--Junta os dados dos campos e envia para o servidor via POST-->
+
+            <label for="cliente">Selecione o Cliente</label>
+            <select name="cliente" id="cliente" required>
+                <option value="" disabled selected>-- Escolha um Cliente --</option> <!---->
+                {% for c in clientes %}
+                    <option value="{{ loop.index0 }}">{{ c.nome }} ({{ c.email }})</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <label for="produto">Selecione o Produto</label>
+            <select name="produto" id="produto" required>
+                <option value="" disabled selected>-- Escolha um Produto --</option>
+                {% for p in produtos %}
+                    <option value="{{ loop.index0 }}">{{ p.nome }} - R$ {{ p.preco }} (Estoque: {{ p.quantidade }} un)</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <label for="quantidade_venda">Quantidade a Vender:</label>
+            <input type="number" name="quantidade_venda" id="quantidade_venda" min="1" placeholder="Ex. 2" required>
+            <br><br>
+
+            <button type="submit">Gerar Orçamento</button>
+        </form>
+    </fieldset>
+
+    <hr>
+
+    <!--Tabela de Orçamentos-->
+    <h2>Histórico de Orçamentos</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in orcamentos %}
+            <tr>
+                <td>{{ o.cliente }}</td>
+                <td>{{ o.produto }}</td>
+                <td>{{ o.quantidade }} un</td>
+                <td>R$ {{ o.total }}</td>
+                <td>{{ o.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
