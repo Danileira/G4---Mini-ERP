@@ -1,37 +1,43 @@
-estou fazendo um Mini ERP para apresentar para a minha empresa em que trabalho. Este é o código Python com Flask:
+# G4 Mini - Sistema de Gestão ERP 🚀
 
+O **G4 Mini** é um sistema compacto de Planejamento de Recursos Empresariais (ERP) desenvolvido como projeto prático de estudos. O software permite o controle essencial de um fluxo comercial, englobando o cadastro de produtos, gerenciamento de clientes, emissão de orçamentos e registro de vendas com baixa automática de estoque.
 
+A interface conta com uma estilização moderna, limpa e responsiva em modo escuro (*Dark Mode*), implementada de forma otimizada.
 
-Este é o index.html:
+---
 
+## 🛠️ Tecnologias Utilizadas
 
+* **Backend:** Python 3 & Flask (Arquitetura de rotas e processamento de requisições GET/POST)
+* **Frontend:** HTML5 & Jinja2 (Renderização de templates dinâmicos e controle de loops no navegador)
+* **Estilização:** Water.css (Framework *classless* para design responsivo e minimalista)
+* **Controle de Versão:** Git & GitHub
 
-Esse é o produtos.html:
+---
 
+## 💡 Funcionalidades do Sistema
 
+* **Gestão de Produtos:** Cadastro, listagem, edição e exclusão de itens com controle de preço e estoque.
+* **Gestão de Clientes:** Cadastro completo e gerenciamento de base de clientes (Nome e E-mail).
+* **Módulo de Orçamentos:** Geração de propostas comerciais atrelando clientes e produtos cadastrados, mantendo o status inicial como `PENDENTE`.
+* **Módulo de Vendas:** Validação de estoque disponível, cálculo automático do valor total e abatimento automático da quantidade vendida direto no estoque real do produto.
 
-Esse é o editar_produto.html:
+---
 
+## 📁 Estrutura do Projeto
 
-
-Esse é o clientes.html:
-
-
-
-Esse é o editar_cliente.html:
-
-
-
-Esse é o orcamentos.html
-
-
-
-Esse é o vendas.html:
-
-
-
-Preciso que você seja explicativo passo a passo, pois sou extremamente leigo na programação, principalmente na lógica, e quero aprender fazendo esse CRUD. Utilize bastante dos comentários nos códigos para explicar e explicações diretas. Quero aperfeiçoar esse código, por agora é apenas o esqueleto, mas quero continuar ele e desenvolver a partir, depois voltamos para dar continuidade a certas coisas como CSS, etc. Vamos deixar tudo funcional por enquanto.
-
-http://127.0.0.1:5000/
-python app.py
-
+```text
+📁 G4-Mini-ERP/
+│
+├── 📄 app.py            # Código principal com a lógica de negócios e rotas Flask
+├── 📄 .gitignore        # Bloqueio de arquivos temporários do Python (__pycache__)
+├── 📄 README.md         # Documentação do projeto
+│
+└── 📁 templates/        # Arquivos de interface (HTML + Jinja2)
+    ├── 📄 index.html
+    ├── 📄 produtos.html
+    ├── 📄 editar_produto.html
+    ├── 📄 clientes.html
+    ├── 📄 editar_cliente.html
+    ├── 📄 orcamentos.html
+    └── 📄 vendas.html
